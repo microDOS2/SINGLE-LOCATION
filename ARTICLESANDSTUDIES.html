@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Microdosing Research & Commentary</title>
+<style>
+  /* ===== microDOS(2) dark UI — self‑contained, no images/CDNs ===== */
+  :root{
+    --slate-900:#0f172a; --slate-850:#141c31; --slate-800:#1e293b; --slate-750:#243247;
+    --slate-700:#334155; --slate-600:#475569; --slate-500:#64748b; --slate-400:#94a3b8; --slate-300:#cbd5e1; --white:#ffffff;
+    --sky-300:#7dd3fc; --sky-400:#38bdf8; --violet-500:#8b5cf6; --pink-500:#ec4899; --cyan-500:#06b6d4; --green-500:#22c55e;
+  }
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--slate-900);color:var(--slate-300)}
+  .container{max-width:1100px;margin:auto;padding:0 24px}
+  .header{position:sticky;top:0;z-index:30;background:rgba(15,23,42,.72);backdrop-filter:blur(8px);border-bottom:1px solid #0b1220}
+  .row{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+  h1{color:#fff;font-weight:800;margin:0;font-size:24px}
+  .grad{background:linear-gradient(90deg,var(--sky-400),var(--violet-500));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .btn{display:inline-block;padding:10px 16px;border-radius:12px;background:linear-gradient(90deg,var(--sky-400),var(--violet-500));color:#fff;font-weight:700;text-decoration:none; margin: 5px;}
+  .nav-links a + a { margin-left: 12px; } /* Style for spacing nav buttons */
+  .section{padding:68px 0}
+  .title{color:#fff;font-weight:900;margin:0 0 8px;font-size:40px;text-align:center;letter-spacing:-.02em}
+  .subtitle{max-width:860px;margin:0 auto;color:var(--slate-300);text-align:center}
+  .card{background:var(--slate-800);border:1px solid #152238;border-radius:16px;padding:24px}
+  .grid{display:grid;gap:24px}
+  @media(min-width:920px){.grid-3{grid-template-columns:2fr 1fr}.grid-4{grid-template-columns:repeat(4,1fr)}.grid-3eq{grid-template-columns:repeat(3,1fr)}}
+  h2{color:#fff;margin:0 0 10px;font-size:28px}
+  h3{color:#fff;margin:0 0 10px;font-size:22px}
+  ul{padding-left:18px;margin:0}
+  li{margin:6px 0}
+  /* --- Style for hyperlinked items --- */
+  .hyperlinked-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease-in-out;
+  }
+  .hyperlinked-item:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+    color: var(--sky-300);
+  }
+  .muted{color:var(--slate-500);font-size:12px}
+  .footer{border-top:1px solid #1b2641;color:var(--slate-500);text-align:center;padding:32px 0;margin-top:48px}
+  .sub-section {
+      padding-top: 32px;
+      padding-bottom: 32px;
+  }
+  .sub-heading {
+    color: #fff;
+    font-weight: 800;
+    font-size: 24px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--slate-700);
+    padding-bottom: 8px;
+  }
+  .article-card {
+      background: var(--slate-800);
+      border: 1px solid var(--slate-700);
+      border-radius: 12px;
+      padding: 24px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  }
+  .article-card h4 {
+      color: var(--sky-300);
+      font-weight: 700;
+      font-size: 18px;
+  }
+  .article-card p {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container row">
+      <h1>microDOS<span class="grad">(2)</span></h1>
+      <nav class="nav-links">
+        <!-- New buttons added as requested -->
+        <a href="https://microdos2.github.io/UPDATE2/" class="btn">Home</a>
+        <a href="https://microdos2.github.io/usersstories/" class="btn">User Experiences</a>
+        <!-- Existing buttons -->
+        <a href="#articles" class="btn">Articles</a>
+        <a href="#studies" class="btn">Studies</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title">Microdosing Research & Commentary</h2>
+        <p class="subtitle">An overview of recent articles, studies, and anecdotal reports on the topic of microdosing psychedelics.</p>
+      </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="section" id="articles">
+      <div class="container">
+        <h3 class="sub-heading">Articles</h3>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <a href="https://www.verywellhealth.com/microdosing-5271962" target="_blank" class="hyperlinked-item">
+            <div class="article-card">
+              <h4>Microdosing: Everything You Need to Know (Verywell Health)</h4>
+              <p>A clear guide covering how microdosing works, possible mood-boosting effects, risks, and scientific skepticism.</p>
+            </div>
+          </a>
+          <a href="https://apnews.com/article/microdosing-lsd-mushrooms-psychedelic-psilocybin-390c99ba54ef9d75727f39e2ec78fb34" target="_blank" class="hyperlinked-item">
+            <div class="article-card">
+              <h4>Believers say microdosing psychedelics helps them. Scientists are trying to measure the claims (AP News)</h4>
+              <p>Balances heartfelt testimonials with sober scientific perspective—highlighting anecdotal benefits and placebo considerations.</p>
+            </div>
+          </a>
+          <a href="https://coloradosun.com/2022/08/07/microdosing-shrooms-psilocybin-anxiety-depression/" target="_blank" class="hyperlinked-item">
+            <div class="article-card">
+              <h4>Eight months ago I started microdosing shrooms to relieve crippling anxiety and depression. It’s working. (The Colorado Sun)</h4>
+              <p>A deeply personal narrative describing how daily microdosing (~0.14 g psilocybin) helped the author overcome chronic anxiety and depression.</p>
+            </div>
+          </a>
+          <a href="https://www.theguardian.com/science/2019/may/03/psychedelic-drugs-women-taking-tiny-doses-hattie-garlick" target="_blank" class="hyperlinked-item">
+            <div class="article-card">
+              <h4>“It makes me enjoy playing with the kids”: is microdosing mushrooms going mainstream? (The Guardian)</h4>
+              <p>Rosie’s story of tiny dosing (~0.12 g) reveals newfound calm, confidence, and presence—without discernible intoxication.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Scientific Studies Section -->
+    <section class="section" id="studies" style="padding-top:0">
+        <div class="container">
+          <h3 class="sub-heading">Scientific Studies (All Free Access)</h3>
+          <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <a href="https://www.nature.com/articles/s41598-021-01811-4" target="_blank" class="hyperlinked-item">
+                <div class="article-card">
+                    <h4>Scientific Reports (2021) — Adults who microdose psychedelics report health related motivations…</h4>
+                    <p>Open-access research revealing microdosers frequently cite health-driven motivations and report reduced symptoms of anxiety and depression compared to non-users.</p>
+                </div>
+            </a>
+            <a href="https://harmreductionjournal.biomedcentral.com/articles/10.1186/s12954-019-0308-4" target="_blank" class="hyperlinked-item">
+                <div class="article-card">
+                    <h4>Harm Reduction Journal (2019) — Psychedelic microdosing benefits and challenges: an empirical codebook</h4>
+                    <p>A qualitative analysis of microdosers' experiences—detailing both benefits like improved mood and challenges like physical discomfort.</p>
+                </div>
+            </a>
+            <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0211023" target="_blank" class="hyperlinked-item">
+                <div class="article-card">
+                    <h4>PLOS One (2019) — A systematic study of microdosing psychedelics</h4>
+                    <p>An observational six-week study of microdosers noting well-being gains paired with expectancy effects.</p>
+                </div>
+            </a>
+            <a href="https://www.nature.com/articles/s41598-022-14512-3" target="_blank" class="hyperlinked-item">
+                <div class="article-card">
+                    <h4>Scientific Reports (2022) — Psilocybin microdosers demonstrate greater observed improvements…</h4>
+                    <p>A longitudinal study finding small- to medium-sized improvements in mood and mental health in microdosers relative to a control group.</p>
+                </div>
+            </a>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div style="margin-bottom: 24px;">
+      <a href="https://microdos2.github.io/UPDATE2/#pricing" class="btn">Buy Now</a>
+    </div>
+    <div>
+      © 2025 microDOS(2) — All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
