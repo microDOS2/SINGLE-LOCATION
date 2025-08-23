@@ -73,8 +73,14 @@ h1 {
   font-weight: 700;
   text-decoration: none;
 }
-.nav-links a + a {
-  margin-left: 12px;
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+.nav-links a {
+  flex-shrink: 0;
 }
 .section {
   padding: 68px 0;
@@ -168,85 +174,85 @@ li {
 }
 .tablet-visual {
   flex-shrink: 0;
-}
-.tablet {
   width: 80px;
   height: 40px;
-  background: linear-gradient(145deg, var(--slate-400), var(--slate-300));
-  border-radius: 20px;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-.tablet::before {
+.tablet-part {
+  position: absolute;
+  background: linear-gradient(145deg, var(--slate-400), var(--slate-300));
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.full .tablet-part {
+  border-radius: 20px;
+}
+.half .tablet-part {
+  width: 50%;
+  border-radius: 20px 0 0 20px;
+}
+.half .tablet-part:after {
   content: '';
   position: absolute;
+  top: 0;
+  right: -1px; /* Overlap slightly for a cleaner seam */
   height: 100%;
   width: 2px;
   background: rgba(255, 255, 255, 0.5);
 }
-.half .tablet {
-  width: 40px;
-  border-radius: 20px 0 0 20px;
-}
-.half .right-half {
-  width: 40px;
-  height: 40px;
+.half .faded-part {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
   background: linear-gradient(145deg, var(--slate-400), var(--slate-300));
   border-radius: 0 20px 20px 0;
   opacity: 0.2;
-  position: relative;
-}
-.half .right-half::before {
-  content: '';
-  position: absolute;
-  height: 100%;
-  width: 2px;
-  background: rgba(255, 255, 255, 0.5);
-  left: -1px;
-  /* Position it on the edge */
-}
-.quarter-container {
-  width: 80px;
-  height: 40px;
-  position: relative;
 }
 .quarter .tablet-part {
-  position: absolute;
-  width: 40px;
-  height: 20px;
-  background: linear-gradient(145deg, var(--slate-400), var(--slate-300));
-}
-.quarter .top-left {
-  top: 0;
-  left: 0;
+  width: 50%;
+  height: 50%;
   border-radius: 20px 0 0 0;
 }
-.quarter .bottom-left {
+.quarter .faded-half {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(145deg, var(--slate-400), var(--slate-300));
+  border-radius: 0 20px 20px 0;
+  opacity: 0.2;
+}
+.quarter .faded-quarter {
+  position: absolute;
   bottom: 0;
   left: 0;
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(145deg, var(--slate-400), var(--slate-300));
   border-radius: 0 0 0 20px;
   opacity: 0.2;
 }
-.quarter .right-half {
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 0 20px 20px 0;
-  opacity: 0.2;
-  background: linear-gradient(145deg, var(--slate-400), var(--slate-300));
-  position: relative;
-}
-.quarter .right-half::before {
+.quarter .tablet-part:after, .quarter .faded-quarter:after {
   content: '';
   position: absolute;
   height: 100%;
   width: 2px;
   background: rgba(255, 255, 255, 0.5);
-  left: -1px;
+  right: -1px;
+}
+.quarter .tablet-part:before, .quarter .faded-quarter:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  bottom: -1px;
 }
 .dose-info {
   text-align: left;
@@ -269,9 +275,30 @@ li {
   font-size: 14px;
   margin: 0;
 }
-.button-container {
-  text-align: center;
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
   margin-top: 24px;
+}
+.story-grid .btn {
+  padding: 8px; /* Further reduced padding */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 250px; /* Added max-width to control the box size */
+}
+.story-grid .btn span:first-child {
+  font-size: 16px; /* Reverted font size for title */
+}
+.story-grid .btn span:last-child {
+  font-size: 12px; /* Reverted font size for subtitle */
+  opacity: 0.85;
+  font-weight: 400;
+  margin-top: 4px;
 }
 .benefits-header {
   display: flex;
@@ -298,8 +325,17 @@ li {
     display: none;
     /* Hide nav links on small screens if needed */
   }
-  .button-container a {
-    margin-bottom: 12px;
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .story-grid .btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .story-subtitle {
+    font-size: 12px;
+    margin-top: 2px;
   }
 }
 /* ===== Infographic Styles End ===== */
@@ -310,8 +346,9 @@ li {
     <div class="container row">
       <h1>microDOS<span class="grad">(2)</span></h1>
       <nav class="nav-links">
+        <a href="ARTICLESANDSTUDIES.html" class="btn">Articles & Studies</a>
         <a href="#microdosing" class="btn">Dosage Guide</a>
-        <a href="https://microdos2.github.io/SINGLE-LOCATION" class="btn">Home</a>
+        <a href="https://microdos2.github.io/SINGLE-LOCATION/" class="btn">Home</a>
         <a href="#safety" class="btn">Safety Notes</a>
       </nav>
     </div>
@@ -335,7 +372,7 @@ li {
             <!-- Full Dose -->
             <div class="dose-card">
               <div class="tablet-visual full">
-                <div class="tablet"></div>
+                <div class="tablet-part"></div>
               </div>
               <div class="dose-info">
                 <h3 class="dose-title">1 Tablet</h3>
@@ -345,9 +382,9 @@ li {
             </div>
             <!-- Half Dose -->
             <div class="dose-card">
-              <div class="tablet-visual half" style="display: flex; align-items: center;">
-                <div class="tablet"></div>
-                <div class="right-half"></div>
+              <div class="tablet-visual half">
+                <div class="tablet-part"></div>
+                <div class="faded-part"></div>
               </div>
               <div class="dose-info">
                 <h3 class="dose-title">1/2 Tablet</h3>
@@ -358,11 +395,9 @@ li {
             <!-- Quarter Dose -->
             <div class="dose-card">
               <div class="tablet-visual quarter">
-                <div class="quarter-container">
-                  <div class="tablet-part top-left"></div>
-                  <div class="tablet-part bottom-left"></div>
-                  <div class="right-half"></div>
-                </div>
+                <div class="tablet-part"></div>
+                <div class="faded-quarter"></div>
+                <div class="faded-half"></div>
               </div>
               <div class="dose-info">
                 <h3 class="dose-title">1/4 Tablet</h3>
@@ -387,15 +422,14 @@ li {
         </div>
       </div>
     </section>
+    </section>
+
     <!-- Potential Benefits -->
     <section class="section" id="benefits" style="padding-top:32px">
       <div class="container card">
         <div class="benefits-header">
           <h3>Potential Benefits of Microdosing</h3>
-          <a href="UserStoriespage.html" target="_blank" rel="noopener noreferrer" class="btn">
-            User Stories
-          </a>
-        </div>
+                 </div>
         <p>While individual experiences vary, users often microdose to seek:</p>
         <ul>
           <li>Enhanced focus and concentration</li>
@@ -404,7 +438,30 @@ li {
           <li>Greater presence and sensory awareness</li>
           <li>Reduced anxiety in social or professional settings</li>
         </ul>
-            </section>
+        <div class="story-grid">
+          <a href="ASSETS/Joes Story/JoesStory.html" class="btn">
+            <span>Joe's Story</span>
+            <span class="story-subtitle">The Day the Colors Came Back</span>
+          </a>
+          <a href="ASSETS/Eleanors Story/elanorstory.html" class="btn">
+            <span>Elanor's Story</span>
+            <span class="story-subtitle">A Quiet Revolution</span>
+          </a>
+          <a href="ASSETS/Jalens Story/Jalenstory.html" class="btn">
+            <span>Jalen's Story</span>
+            <span class="story-subtitle">A Journey Back to Self</span>
+          </a>
+            <a href="ASSETS/Lenas Story/lenastory.html" class="btn">
+            <span>Lena's Story</span>
+            <span class="story-subtitle">Finding Flow in the Everyday</span>
+          </a>
+          <a href="ASSETS/Banyus Story/banyusstory.html" class="btn">
+            <span>Banyu's Story</span>
+            <span class="story-subtitle">Blueprint for Clarity</span>
+          </a>
+        </div>
+      </div>
+    </section>
     <!-- Safety -->
     <section class="section" id="safety" style="padding-top:32px">
       <div class="container card">
@@ -422,10 +479,9 @@ li {
     </section>
     <!-- Order Now CTA -->
     <section class="section" style="padding-top: 0; padding-bottom: 0; text-align: center;">
-      <a href="https://microdos2.github.io/UPDATE2/#pricing" class="btn" style="padding: 16px 32px; font-size: 20px;">Order Now</a>
+      <a href=" https://microdos2.github.io/SINGLE-LOCATION/#pricing" class="btn" style="padding: 16px 32px; font-size: 20px;">Order Now</a>
     </section>
   </main>
   <footer class="footer">© 2025 microDOS(2) — Precision Psychedelics, Simplified.</footer>
 </body>
 </html>
-
